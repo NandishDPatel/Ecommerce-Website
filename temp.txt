@@ -1,0 +1,10 @@
+- navbar onclick remaining
+- trolley moving from left to right in eshoppy
+- box animation on icons
+
+- redirection on click not working, in two images banner section
+
+
++ Responsive design completed:
+- contact page
+- about page
