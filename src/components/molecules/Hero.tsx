@@ -1,21 +1,15 @@
-import homeImage from "../../assets/banners/home-page.jpg";
 import Button from "../atoms/Button";
 
 const Hero = () => {
-  console.log("homeImage:", homeImage);
-
   return (
     <section className="relative w-full h-96 overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-black bg-opacity-40 w-full h-full"
         style={{
-          backgroundImage: `url(D:/extra_coding/11-reactjs-ts-ecom/ecom-website/src/assets/banners/home-page.jpg)`,
-          width: "100%",
+          backgroundImage: `url(/mens-page.jpg)`,
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
       {/* Content */}
