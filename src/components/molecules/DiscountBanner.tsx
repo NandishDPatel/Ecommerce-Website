@@ -1,6 +1,7 @@
 import discBanner from "../../assets/banners/discount-banner.jpg";
 import Services from "../atoms/Services";
 import Button from "../atoms/Button";
+import { Link } from "react-router";
 
 const DiscountBanner = () => {
   return (
@@ -14,15 +15,14 @@ const DiscountBanner = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
         {/* Content */}
         <div className="relative z-10 text-center px-4">
-          <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-white text-4xl md:text-5xl lg:text-6xl mb-6">
             We Offer Flat <span className="text-teal-400">40%</span> Discount
           </h2>
-          <Button name="Shop Now"/>
+          <Link to="/women-wear">
+            <Button name="Shop Now" />
+          </Link>
         </div>
       </section>
       <Services />

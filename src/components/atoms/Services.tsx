@@ -5,22 +5,22 @@ const Services = () => {
   const features = [
     {
       icon: faTruck,
-      title: 'FREE SHIPPING',
+      title: 'Free Shipping',
       description: 'Get FREE delivery on first five orders !!!!',
     },
     {
       icon: faHeadset,
-      title: '24/7 SUPPORT',
+      title: '24/7 Support',
       description: "No matter the time of day, we're here to help.",
     },
     {
       icon: faLock,
-      title: 'MONEY BACK',
+      title: 'Money Back',
       description: 'Full refund in case a order cancels within 3 days',
     },
     {
       icon: faGift,
-      title: 'GIFT COUPONS',
+      title: 'Gift Coupons',
       description: 'Coupons will be povided to the lucky customers',
     },
   ];

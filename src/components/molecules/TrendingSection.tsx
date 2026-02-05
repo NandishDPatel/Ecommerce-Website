@@ -7,9 +7,9 @@ const TrendingSection = () => {
     <section className="bg-gray-100 py-16 px-8">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold">
-          <span className="text-teal-400">WHAT'S</span>{" "}
-          <span className="text-black">TRENDING</span>
+        <h2 className="text-4xl md:text-5xl">
+          <span className="text-black">What's</span>{" "}
+          <span className="text-teal-400">Trending</span>
         </h2>
       </div>
 
@@ -34,7 +34,7 @@ const TrendingSection = () => {
           >
             {/* Sale Badge */}
             <div className="absolute top-8 right-8 text-white px-6 py-3 text-2xl font-bold rounded-full tracking-[20px]">
-              <span className="text-5xl text-red-600">S</span>ALE
+              <span className="text-5xl text-red-600">S</span>ale
             </div>
 
             {/* Hover Overlay */}
@@ -78,7 +78,7 @@ const TrendingSection = () => {
             >
               {/* Sale Badge */}
               <div className="absolute top-6 right-6 text-white px-5 py-2 text-xl font-bold rounded-full tracking-[15px]">
-               <span className="text-5xl text-red-600">S</span>ALE
+               <span className="text-5xl text-red-600">S</span>ale
               </div>
 
               {/* Hover Overlay */}
@@ -93,7 +93,7 @@ const TrendingSection = () => {
                 "
               >
                 <div className="text-white text-center">
-                  <p className="text-2xl font-bold tracking-widest">
+                  <p className="text-3xl text-black tracking-widest">
                     Footwear Collection
                   </p>
                 </div>
@@ -120,7 +120,7 @@ const TrendingSection = () => {
             >
               {/* Sale Badge */}
               <div className="absolute top-6 right-6 text-white px-5 py-2 text-xl font-bold rounded-full tracking-[15px]">
-               <span className="text-5xl text-red-600">S</span>ALE
+               <span className="text-5xl text-red-600">S</span>ale
               </div>
 
               {/* Hover Overlay */}
@@ -135,7 +135,7 @@ const TrendingSection = () => {
                 "
               >
                 <div className="text-white text-center">
-                  <p className="text-2xl font-bold tracking-widest">
+                  <p className="text-3xl text-black tracking-widest">
                     Premium Leather
                   </p>
                 </div>

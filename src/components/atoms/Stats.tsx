@@ -9,9 +9,9 @@ import {
 type CounterKeys = "customers" | "events" | "awards";
 
 const stats = [
-  { icon: faUser, label: "CUSTOMERS", count: 653, key: "customers" },
-  { icon: faCalendar, label: "EVENTS", count: 823, key: "events" },
-  { icon: faShield, label: "AWARDS", count: 45, key: "awards" },
+  { icon: faUser, label: "Customers", count: 653, key: "customers" },
+  { icon: faCalendar, label: "Events", count: 823, key: "events" },
+  { icon: faShield, label: "Awards", count: 45, key: "awards" },
 ] as const;
 
 const Stats = () => {
@@ -77,7 +77,7 @@ const Stats = () => {
             icon={stat.icon}
             className="text-white text-3xl mb-3"
           />
-          <p className="text-white font-semibold text-sm mb-2">
+          <p className="text-white text-lg font-semibold mb-2">
             {stat.label}
           </p>
           <p className="text-2xl lg:text-3xl font-bold">

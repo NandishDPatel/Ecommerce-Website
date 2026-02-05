@@ -5,6 +5,7 @@ import Button from "@/components/atoms/Button";
 import { useCart } from "@/context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faStar } from "@fortawesome/free-solid-svg-icons";
+import AddToCartPopup from "../atoms/AddToCartPopup";
 
 interface Props {
   product: Product;
@@ -16,6 +17,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
   const [selectedColor, setSelectedColor] = useState<string>("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [error, setError] = useState<string>("");
+  const [activeImage, setActiveImage] = useState(product.mainImage);
   const { addToCart } = useCart();
 
   // Prevent body scroll when modal is open
@@ -52,14 +54,11 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
 
     const sizeToAdd = selectedSize;
     addToCart(product, sizeToAdd);
-
     setShowConfirmation(true);
 
     setTimeout(() => {
       setShowConfirmation(false);
     }, 3000);
-
-    // onClose(); //close the product view box
   };
 
   return (
@@ -81,7 +80,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
             onClick={onClose}
             className="absolute top-4 right-4 z-10 p-2 bg-red-600 text-white hover:bg-red-400 cursor-pointer shadow-lg transition"
           >
-            <X className="w-6 h-6" />
+            <X className="w-4 text-black h-4" />
           </button>
 
           {/* Modal Content */}
@@ -93,23 +92,36 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                   {product.badge}
                 </span>
               )}
-              <img
-                src={product.mainImage}
-                alt={product.name}
-                className="w-full h-auto"
-              />
+              <div className="flex flex-col gap-2">
+                <img
+                  src={activeImage}
+                  alt={product.name}
+                  className="w-full h-84 object-contain"
+                />
+                <div className="flex gap-2 overflow-x-auto">
+                  {product.thumbnails.map((imgUrl, id) => (
+                    <img
+                      key={id}
+                      src={imgUrl}
+                      alt={`${product.name} thumbnail ${id + 1}`}
+                      className="h-20 w-20 object-cover flex-shrink-0 cursor-pointer hover:opacity-75 transition-opacity"
+                      onClick={() => setActiveImage(imgUrl)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Product Details */}
             <div className="flex flex-col">
-              <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">
+              <p className="text-xs text-gray-400 tracking-wide mb-2">
                 {product.category}
               </p>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 {product.name}
               </h2>
 
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-5">
                 {product.originalPrice ? (
                   <>
                     <span className="text-teal-400 font-bold text-2xl">
@@ -134,7 +146,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                 )}
               </div>
 
-              <div className="mb-6">
+              <div className="mb-2">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   Description
                 </h3>
@@ -146,7 +158,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
 
               {/* Sizes */}
               {product.sizes && product.sizes.length > 0 && (
-                <div className="mb-6">
+                <div className="mb-2">
                   <h3 className="font-semibold text-gray-900 mb-2">Size</h3>
                   <div className="flex gap-2 flex-wrap">
                     {product.sizes.map((size: string) => (
@@ -166,7 +178,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                       </button>
                     ))}
                   </div>
-                  <div className="h-5 text-sm text-red-500 mt-2">
+                  <div className="h-3 text-sm text-red-500">
                     {error && !selectedSize && <>{error}</>}
                   </div>
                 </div>
@@ -174,7 +186,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
 
               {/* Colors */}
               {product.colors && product.colors.length > 0 && (
-                <div className="mb-6">
+                <div className="mb-2">
                   <h3 className="font-semibold text-gray-900 mb-2">Color</h3>
                   <div className="flex gap-2">
                     {product.colors.map((color: any, id: number) => (
@@ -190,28 +202,26 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                       />
                     ))}
                   </div>
-                  <div className="h-5 text-sm text-red-500 mt-2">
+                  <div className="h-5 text-sm text-red-500">
                     {error && selectedSize && !selectedColor && <>{error}</>}
                   </div>
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-5">
                 <h3 className="font-semibold text-gray-900 mb-2">Rating</h3>
                 <p className="text-bold">
                   <FontAwesomeIcon
-                    className="text-xs text-yellow-500"
+                    className="text-xs text-yellow-400"
                     icon={faStar}
                   />{" "}
-                  {product.rating} ({product.reviews})
+                  <span className="font-bold">{product.rating}</span> (
+                  {product.reviews})
                 </p>
               </div>
 
-              {/* Action Buttons */}
-              <div className="mt-auto space-y-3">
-                <div onClick={handleAddToCart}>
-                  <Button name="Add to Cart" />
-                </div>
+              <div onClick={handleAddToCart}>
+                <Button name="Add to Cart" />
               </div>
             </div>
           </div>
@@ -220,23 +230,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
 
       {/* Success Confirmation Popup */}
       {showConfirmation && (
-        <div className="fixed top-8 right-8 z-[60] animate-fade-in">
-          <div className="bg-black text-white p-4 px-6 shadow-2xl flex items-center gap-3">
-            <FontAwesomeIcon
-              className="text-lg text-teal-500"
-              icon={faCartShopping}
-            />
-            <div>
-              <p className="font-semibold">Added to Cart !</p>
-              <p className="text-sm text-teal-50">
-                {product.name}
-                <span className="text-sm">
-                  {selectedSize && ` - Size: ${selectedSize}`}
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+        <AddToCartPopup product={product} selectedSize={selectedSize} />
       )}
     </>
   );

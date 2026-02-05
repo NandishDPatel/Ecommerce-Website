@@ -1,0 +1,7 @@
+export const storeDataPara1 = "With our decade of experience of the industry, we are offering a quality array of Exclusive Shirt to our customers at reasonable rates.Known for manufacturing, supplying and wholesaling an extensive collection of high - grade Shirts, Neelkanth Collection was established in the year at 2010.";
+
+export const storeDataPara2 = "The product array offered is inclusive of optimum quality Casual Shirts, Formal Shirt, Partywear Shirts, Designer Shirts, Exclusive Shirt and Ethnic Shirt. With the support of latest machines and technology, our talented professionals precisely designed in accordance with the industry defined norms.";
+
+export const storeDataPara3 = "Most of the small and medium based companies, don't even dream of reaching the global customers since they cannot fathom the involved costs in it. Even though, you have a small or home based business, you can establish a global reach with our simple and user friendly eShoppy Website.";
+
+export const storeDataPara4 = "As a leading Software Development company, EShoppy is India's best eShoppy Software Development Company. We provide end to end ecommerce software development & ecommerce online stores solutions to global clients. We provide comprehensive packages to cater the absolute requirements of clients, who are willing to take their business online. It is a highly experienced and trusted provider of high performance eShoppy software solutions..";

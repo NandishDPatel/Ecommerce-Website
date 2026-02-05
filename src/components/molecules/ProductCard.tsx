@@ -9,7 +9,6 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({ product, onClick }) => {
   return (
-    // <Link to="/product-view-details">
     <div
       onClick={onClick}
       className="bg-white shadow-sm hover:shadow-lg hover:scale-105 duration-300 ease-out ease-in hover:cursor-pointer transition w-full max-w-sm"
@@ -22,8 +21,8 @@ const ProductCard: React.FC<Props> = ({ product, onClick }) => {
         )}
         {product.reviews && product.rating && (
           <span className="absolute bottom-1 right-1 text-black bg-teal-500 text-xs p-1 z-10">
-            <FontAwesomeIcon className="text-xs text-yellow-500" icon={faStar} />{" "}
-            {product.rating} ({product.reviews})
+            <FontAwesomeIcon className="text-xs text-yellow-400" icon={faStar} />{" "}
+            <span className="font-bold">{product.rating}</span> ({product.reviews})
           </span>
         )}
         <img
@@ -34,12 +33,12 @@ const ProductCard: React.FC<Props> = ({ product, onClick }) => {
       </div>
 
       <div className="p-4 text-center">
-        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">
+        <p className="text-xs text-gray-400 tracking-wide mb-1">
           {product.category}
         </p>
         <h3 className="font-bold text-gray-900 mb-2">{product.name}</h3>
 
-        <div className="flex justify-center items-center gap-3">
+        <div className="flex justify-center items-center gap-4">
           {product.originalPrice ? (
             <>
               <span className="text-teal-400 font-bold text-lg">
@@ -57,7 +56,6 @@ const ProductCard: React.FC<Props> = ({ product, onClick }) => {
         </div>
       </div>
     </div>
-    // </Link>
   );
 };
 

@@ -8,3 +8,6 @@
 + Responsive design completed:
 - contact page
 - about page
+
+
+- sign in/ sign up form remaining

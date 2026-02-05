@@ -1,3 +1,4 @@
+import { storeDataPara3, storeDataPara4} from "@/utils/data/storeData";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -19,7 +20,7 @@ export default function AboutSection() {
           <div>
             <div className="mb-8 about-sec relative">
               <h2 className="text-2xl md:text-5xl font-normal mb-2">
-                About <span className="font-bold">E-shoppy</span>
+                About <span className="text-teal-400">E-shoppy</span>
               </h2>
               <div className="w-full h-px bg-white mt-4 relative">
                 <FontAwesomeIcon
@@ -30,22 +31,12 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-2 md:space-y-6 text-gray-300 leading-relaxed">
-              <p className="text-sm md:text-lg">
-                Most of the small and medium based companies, don't even dream
-                of reaching the global customers since they cannot fathom the
-                involved costs in it. Even though, you have a small or home
-                based business, you can establish a global reach with our simple
-                and user friendly eShoppy Website.
+              <p className="text-sm text-justify md:text-lg">
+                {storeDataPara3}
               </p>
 
-              <p className="text-sm md:text-lg">
-                As a leading Software Development company, EShoppy is India's
-                best eShoppy Software Development Company. We provide end to end
-                ecommerce software development & ecommerce online stores
-                solutions to global clients. We provide comprehensive packages
-                to cater the absolute requirements of clients, who are willing
-                to take their business online. It is a highly experienced and
-                trusted provider of high performance eShoppy software solutions.
+              <p className="text-sm md:text-lg text-justify">
+                {storeDataPara4}
               </p>
             </div>
           </div>

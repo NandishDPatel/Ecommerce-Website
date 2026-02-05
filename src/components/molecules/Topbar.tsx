@@ -7,31 +7,37 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import SocialIcons from "../atoms/SocialIcons";
+import { useState } from "react";
+import LoginPopup from "../templates/LoginPopup";
 
 const Topbar = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <nav className="bg-black py-1">
         <ul className="list-none flex flex-wrap justify-center items-center gap-2 md:gap-6">
           <li>
-            <a
-              href="/signin"
-              className="text-white no-underline hover:text-gray-300 transition-colors duration-200 flex items-center gap-2"
-              aria-label="Sign In"
+            <button
+              className="text-white hover:cursor-pointer no-underline hover:text-gray-300 transition-colors duration-200 flex items-center gap-2"
+              name="Sign In"
+              onClick={() => setShowModal(true)}
             >
               <FontAwesomeIcon icon={faUnlock} className="text-teal-400" />
               <span>Sign In</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="/signup"
-              className="text-white no-underline hover:text-gray-300 transition-colors duration-200 flex items-center gap-2"
-              aria-label="Sign Up"
+            <button
+              className="text-white hover:cursor-pointer no-underline
+               hover:text-gray-300 transition-colors duration-200 flex items-center gap-2"
+              // aria-label="Sign Up"
+              name="Sign Up"
+              onClick={() => setShowModal(true)}
             >
               <FontAwesomeIcon icon={faPenToSquare} className="text-teal-400" />
               <span>Sign Up</span>
-            </a>
+            </button>
           </li>
           <li>
             <a
@@ -80,9 +86,12 @@ const Topbar = () => {
           />
         </div>
 
-        <SocialIcons/>
-        
+        <SocialIcons />
       </div>
+
+      {showModal && (
+        <LoginPopup showModal={showModal} setShowModal={setShowModal} />
+      )}
     </>
   );
 };

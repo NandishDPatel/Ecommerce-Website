@@ -1,4 +1,4 @@
-import { womenProducts } from "@/utils/data/womenProducts";
+import { menProducts } from "@/utils/data/menProducts";
 import ProductsGrid from "../templates/ProductGrid";
 import { sortingOptions } from "@/utils/data/data";
 import FilterColumn from "../molecules/FilterColumn";
@@ -6,7 +6,7 @@ import { useState } from "react";
 import ProductDetailView from "../molecules/ProductDetailsView";
 import type { Product } from "@/types";
 
-const WomenProducts = () => {
+const MenProducts = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [filter, setFilter] = useState<string>("All");
 
@@ -14,7 +14,7 @@ const WomenProducts = () => {
     setFilter(e.target.value);
   };
 
-  const sortedProducts = [...womenProducts].sort((a, b) => {
+  const sortedProducts = [...menProducts].sort((a, b) => {
     switch (filter) {
       case "Price: Low to High":
         return a.price - b.price;
@@ -39,7 +39,10 @@ const WomenProducts = () => {
             <FilterColumn />
           </div>
           <div className="">
-            <div className="flex justify-end py-5">
+            <div className="flex justify-between">
+              <h1 className="text-3xl font-bold mb-6">
+                Men's <span className="text-teal-400">Wear</span>
+              </h1>
               <div className="flex items-center gap-1">
                 <span className="text-sm text-gray-500">Sort by:</span>
                 <select
@@ -75,4 +78,4 @@ const WomenProducts = () => {
   );
 };
 
-export default WomenProducts;
+export default MenProducts;

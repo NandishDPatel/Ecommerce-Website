@@ -3,7 +3,6 @@ import { collections, sizes } from '@/utils/data/data';
 import { useState } from 'react';
 
 const FilterColumn = () => {
-  const [priceRange, setPriceRange] = useState(50);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
 
@@ -21,30 +20,10 @@ const FilterColumn = () => {
 
   return (
     <div className="w-64 p-6 space-y-8">
-      {/* Price Range */}
-      <div>
-        <h3 className="text-sm font-bold text-gray-900 mb-4 pb-2 border-b-2 border-teal-400 inline-block">
-          Price Range
-        </h3>
-        <div className="mt-6">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={priceRange}
-            onChange={(e) => setPriceRange(Number(e.target.value))}
-            className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-400"
-          />
-          <div className="flex justify-between mt-2 text-xs text-gray-600">
-            <span>$0</span>
-            <span>$1000+</span>
-          </div>
-        </div>
-      </div>
-
+      
       {/* Sizes */}
       <div>
-        <h3 className="text-sm font-bold text-gray-900 mb-4">Sizes</h3>
+        <h3 className="text-sm font-bold text-gray-900 mb-4 border-b-1 border-black">Sizes</h3>
         <div className="grid grid-cols-2 gap-3">
           {sizes.map((size) => (
             <label key={size} className="flex items-center cursor-pointer">
@@ -62,13 +41,13 @@ const FilterColumn = () => {
 
       {/* Color */}
       <div>
-        <h3 className="text-sm font-bold text-gray-900 mb-4">Color</h3>
+        <h3 className="text-sm font-bold text-gray-900 mb-4 border-b-1 border-black">Color</h3>
         <div className="flex gap-3">
           {colors.map((color) => (
             <button
               key={color.name}
               onClick={() => toggleColor(color.name)}
-              className={`w-8 h-8 rounded-full ${color.value} ${
+              className={`w-8 h-8 rounded-full hover:cursor-pointer ${color.value} ${
                 selectedColors.includes(color.name)
                   ? 'ring-2 ring-offset-2 ring-black'
                   : ''
@@ -81,7 +60,7 @@ const FilterColumn = () => {
 
       {/* Collections */}
       <div>
-        <h3 className="text-sm font-bold text-gray-900 mb-4">Collections</h3>
+        <h3 className="text-sm font-bold text-gray-900 mb-4 border-b-1 border-black">Collections</h3>
         <div className="space-y-3">
           {collections.map((collection) => (
             <button

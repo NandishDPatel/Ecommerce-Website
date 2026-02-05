@@ -21,20 +21,25 @@ export const ProductView = ({
       <div className="bg-white max-w-4xl w-full overflow-y-auto">
         <header className="flex justify-between p-4 border-b">
           <h2 className="text-xl font-bold">{product.name}</h2>
-          <button className="hover:cursor-pointer hover:text-gray-500" onClick={onClose}>
+          <button
+            className="hover:cursor-pointer hover:text-gray-500"
+            onClick={onClose}
+          >
             <X />
           </button>
         </header>
 
         <div className="grid md:grid-cols-2 gap-6 p-6">
-          <img src={product.image} />
+          <img src={product.mainImage} />
           <div>
             <div className="flex gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
                   size={16}
-                  className={i < product.rating ? "fill-yellow-400" : "text-gray-300"}
+                  className={
+                    i < product.rating ? "fill-yellow-400 font-bold" : "text-gray-300"
+                  }
                 />
               ))}
             </div>

@@ -1,11 +1,11 @@
-import HomeContent from "../organisms/HomeContent"
+import HomeContent from "../organisms/HomeContent";
 
 const HomePage = () => {
   return (
     <>
-    <HomeContent/>
+      <HomeContent />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
