@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import Button from "@/components/atoms/Button";
 import { useCart } from "@/context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import AddToCartPopup from "../atoms/AddToCartPopup";
 
 interface Props {

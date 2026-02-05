@@ -8,7 +8,7 @@ interface ModalProps {
   setShowModal: (show: boolean) => void;
 }
 
-export default function LoginPopup({ showModal, setShowModal }: ModalProps) {
+export default function LoginPopup({ setShowModal }: ModalProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [activeTab, setActiveTab] = useState<"signin" | "signup">("signin");
   const [error, setError] = useState("");
