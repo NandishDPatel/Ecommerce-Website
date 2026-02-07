@@ -1,15 +1,13 @@
 import Button from "../atoms/Button";
 
 const Hero = () => {
-
-
   return (
     <section className="relative w-full h-96 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(src/assets/banners/home-page.jpg)`,
+          backgroundImage: `url(/assets/banners/home-page.jpg)`,
           width: "100%",
         }}
       >

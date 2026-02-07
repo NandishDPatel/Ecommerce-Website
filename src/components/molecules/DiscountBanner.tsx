@@ -1,4 +1,3 @@
-import discBanner from "../../assets/banners/discount-banner.jpg";
 import Services from "../atoms/Services";
 import Button from "../atoms/Button";
 import { Link } from "react-router";
@@ -9,7 +8,7 @@ const DiscountBanner = () => {
       <section
         className="relative w-full h-[350px] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `url('${discBanner}')`,
+          backgroundImage: `url('/assets/banners/discount-banner.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

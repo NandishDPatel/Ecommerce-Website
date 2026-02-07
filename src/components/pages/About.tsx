@@ -10,7 +10,7 @@ export default function AboutSection() {
           {/* Image Section */}
           <div className="relative">
             <img
-              src="src/assets/posters/about-1.jpg"
+              src="/assets/posters/about-1.jpg"
               alt="Fashion store interior with mannequins displaying clothing"
               className="w-full h-auto shadow-4xl"
             />

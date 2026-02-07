@@ -7,7 +7,7 @@ const MenHero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(src/assets/banners/mens-page.jpg)`,
+          backgroundImage: `url(/assets/banners/mens-page.jpg)`,
           width: "100%",
         }}
       ></div>
@@ -21,7 +21,7 @@ const MenHero = () => {
         </h1>
 
         {/* Shop Now Button */}
-        <Button name="Shop now" />
+        <Button name="Shop Now"/>
       </div>
     </section>
   );

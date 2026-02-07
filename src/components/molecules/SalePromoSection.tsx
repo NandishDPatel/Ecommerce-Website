@@ -1,5 +1,4 @@
 import Stats from "../atoms/Stats";
-import salesImage from "../../assets/posters/sale-promo.jpg"
 
 const SalePromoSection = () => {
   return (
@@ -8,7 +7,7 @@ const SalePromoSection = () => {
       <div
         className="bg-cover bg-center min-h-64 lg:min-h-full bg-[length:110%_100%]
     bg-no-repeat"
-        style={{ backgroundImage: `url(${salesImage})` }}
+        style={{ backgroundImage: `url(/assets/posters/sale-promo.jpg)` }}
       >
       </div>
 

@@ -1,7 +1,3 @@
-import trendingImg1 from "../../assets/posters/trending-1.jpg";
-import trendingImg2 from "../../assets/posters/trending-2.jpg";
-import trendingImg3 from "../../assets/posters/trending-3.jpg";
-
 const TrendingSection = () => {
   return (
     <section className="bg-gray-100 py-16 px-8">
@@ -29,7 +25,7 @@ const TrendingSection = () => {
               group-hover:bg-[position:0_0]
             "
             style={{
-              backgroundImage: `url('${trendingImg1}')`,
+              backgroundImage: `url('/assets/posters/trending-1.jpg')`,
             }}
           >
             {/* Sale Badge */}
@@ -73,12 +69,12 @@ const TrendingSection = () => {
                 group-hover:bg-[position:0_0]
               "
               style={{
-                backgroundImage: `url('${trendingImg2}')`,
+                backgroundImage: `url('/assets/posters/trending-2.jpg')`,
               }}
             >
               {/* Sale Badge */}
               <div className="absolute top-6 right-6 text-white px-5 py-2 text-xl font-bold rounded-full tracking-[15px]">
-               <span className="text-5xl text-red-600">S</span>ale
+                <span className="text-5xl text-red-600">S</span>ale
               </div>
 
               {/* Hover Overlay */}
@@ -115,12 +111,12 @@ const TrendingSection = () => {
                 group-hover:bg-[position:0_0]
               "
               style={{
-                backgroundImage: `url('${trendingImg3}')`,
+                backgroundImage: `url('/assets/posters/trending-3.jpg')`,
               }}
             >
               {/* Sale Badge */}
               <div className="absolute top-6 right-6 text-white px-5 py-2 text-xl font-bold rounded-full tracking-[15px]">
-               <span className="text-5xl text-red-600">S</span>ale
+                <span className="text-5xl text-red-600">S</span>ale
               </div>
 
               {/* Hover Overlay */}

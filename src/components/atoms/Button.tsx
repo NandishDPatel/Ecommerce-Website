@@ -1,13 +1,13 @@
 interface Btn {
   name: string;
-  onClick?: () => void; 
+  onClick?: () => void;
 }
 
 const Button = ({ name, onClick }: Btn) => {
   return (
-    <button 
-      onClick={onClick} 
-      className="w-full bg-black text-white py-3 px-6 hover:bg-gray-800 transition-colors"
+    <button
+      onClick={onClick}
+      className="button-with-border bg-teal-400 w-fit bg-black text-white py-3 px-6 hover:bg-teal-600"
     >
       {name}
     </button>

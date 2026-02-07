@@ -7,8 +7,8 @@ const MensCollection = () => {
         {/* Left Side - Image */}
         <div className="flex justify-center">
           <img
-            src="src\assets\posters\men-collection.jpeg"
-            alt="Women's Fashion"
+            src="/assets/posters/men-collection.jpeg"
+            alt="Men's Fashion"
             className="w-full max-w-md object-cover"
           />
         </div>

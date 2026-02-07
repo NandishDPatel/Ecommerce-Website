@@ -7,7 +7,7 @@ const WomenHero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(src/assets/banners/women-banner.jpg)`,
+          backgroundImage: `url(/assets/banners/women-banner.jpg)`,
           width: "100%",
         }}
       ></div>

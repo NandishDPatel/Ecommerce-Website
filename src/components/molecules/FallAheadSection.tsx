@@ -1,6 +1,4 @@
 import { Link } from "react-router";
-import menImg from "../../assets/posters/image1.jpg";
-import womenImg from "../../assets/posters/image2.jpg";
 
 const FallAheadSection = () => {
   return (
@@ -19,7 +17,7 @@ const FallAheadSection = () => {
     transition-[background-position] duration-[2000ms]
     hover:bg-[position:0_0]
   "
-          style={{ backgroundImage: `url(${menImg})` }}
+          style={{ backgroundImage: `url(/assets/banners/home-page.jpg)` }}
         >
           <h1 className="absolute top-[50px] right-[40px] text-white lg:text-4xl md:text-2xl text-xl md:tracking-[10px] tracking-[8px] lg:tracking-[15px]">
             <span className="text-red-500">F</span>all Ahead
@@ -59,7 +57,7 @@ const FallAheadSection = () => {
     transition-[background-position] duration-[2000ms]
     hover:bg-[position:0_0]
   "
-          style={{ backgroundImage: `url(${womenImg})` }}
+          style={{ backgroundImage: `url(/assets/posters/image2.jpg)` }}
         >
           <h1 className="absolute top-[50px] right-[40px] text-white lg:text-4xl md:text-2xl text-xl md:tracking-[10px] tracking-[8px] lg:tracking-[15px]">
             <span className="text-red-500">S</span>pring Ahead
