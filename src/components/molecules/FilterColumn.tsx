@@ -19,7 +19,7 @@ const FilterColumn = () => {
   };
 
   return (
-    <div className="w-64 p-6 space-y-8">
+    <div className="w-full md:w-64 p-4 md:p-6 space-y-6 md:space-y-8">
       
       {/* Sizes */}
       <div>

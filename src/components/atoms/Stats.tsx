@@ -69,18 +69,18 @@ const Stats = () => {
   return (
     <div
       ref={sectionRef}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center"
+      className="flex flex-row justify-center items-stretch gap-3 sm:gap-6 md:gap-8 text-center"
     >
       {stats.map((stat) => (
-        <div key={stat.key} className="flex flex-col items-center">
+        <div key={stat.key} className="flex flex-col items-center flex-1 min-w-0">
           <FontAwesomeIcon
             icon={stat.icon}
-            className="text-white text-3xl mb-3"
+            className="text-white text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"
           />
-          <p className="text-white text-lg font-semibold mb-2">
+          <p className="text-white text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2">
             {stat.label}
           </p>
-          <p className="text-2xl lg:text-3xl font-bold">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
             {counters[stat.key]}
           </p>
         </div>

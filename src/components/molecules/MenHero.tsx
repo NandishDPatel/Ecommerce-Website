@@ -2,20 +2,17 @@ import Button from "../atoms/Button";
 
 const MenHero = () => {
   return (
-    <section className="relative w-full h-96 overflow-hidden">
-      {/* Background Image */}
+    <section className="relative w-full min-h-[240px] h-64 sm:h-80 md:h-96 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url(/assets/banners/mens-page.jpg)`,
           width: "100%",
         }}
-      ></div>
+      />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        {/* Main Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-wider mb-10">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider mb-6 md:mb-10">
           <span className="text-white">Men's </span>
           <span className="text-teal-400">Wear</span>
         </h1>

@@ -190,6 +190,8 @@
   transition: left 2s ease;
 }
 
-.about-sec:hover .about-cart {
-  left: 400px;
+@media (min-width: 768px) {
+  .about-sec:hover .about-cart {
+    left: 400px;
+  }
 }
