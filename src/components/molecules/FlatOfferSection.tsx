@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const FlatOfferSection = () => {
   return (
@@ -17,7 +17,7 @@ const FlatOfferSection = () => {
 
           {/* Text Content */}
           <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-wide">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white tracking-wide">
               Flat <span className="text-teal-400">50%</span> Offer
             </h2>
           </div>
@@ -38,7 +38,7 @@ const FlatOfferSection = () => {
 
           {/* Text Content */}
           <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-wide">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white tracking-wide">
               Flat <span className="text-teal-400">50%</span> Offer
             </h2>
           </div>

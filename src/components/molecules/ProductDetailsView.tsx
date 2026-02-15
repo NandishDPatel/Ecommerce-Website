@@ -16,7 +16,8 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [error, setError] = useState<string>("");
+  const [sizeError, setSizeError] = useState<string>("");
+  const [colorError, setColorError] = useState<string>("");
   const [activeImage, setActiveImage] = useState(product.mainImage);
   const { addToCart } = useCart();
 
@@ -38,27 +39,23 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
   }, [onClose]);
 
   const handleAddToCart = () => {
-    // Clear any previous errors
-    setError("");
+    setSizeError("");
+    setColorError("");
 
-    // Validate size selection if sizes are available
-    if (product.sizes && product.sizes.length > 0 && !selectedSize) {
-      setError("Please select a size");
+    const hasSizes = product.sizes && product.sizes.length > 0;
+    if (hasSizes && !selectedSize) {
+      setSizeError("Please select a size");
       return;
     }
 
     if (!selectedColor) {
-      setError("Please select a color of your choice.");
+      setColorError("Please select a color.");
       return;
     }
 
-    const sizeToAdd = selectedSize;
-    addToCart(product, sizeToAdd);
+    addToCart(product, selectedSize);
     setShowConfirmation(true);
-
-    setTimeout(() => {
-      setShowConfirmation(false);
-    }, 3000);
+    setTimeout(() => setShowConfirmation(false), 3000);
   };
 
   return (
@@ -70,21 +67,22 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div
-          className="bg-white shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+          className="bg-white shadow-2xl max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto relative rounded-t-2xl sm:rounded-lg"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close Button */}
+          {/* Close Button - larger touch target on mobile */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 bg-red-600 text-white hover:bg-red-400 cursor-pointer shadow-lg transition"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2.5 sm:p-2 bg-red-600 text-white hover:bg-red-500 cursor-pointer shadow-lg transition rounded-lg"
+            aria-label="Close"
           >
-            <X className="w-4 text-black h-4" />
+            <X className="w-5 h-5 sm:w-4 sm:h-4 text-white" />
           </button>
 
           {/* Modal Content */}
-          <div className="grid md:grid-cols-2 gap-8 p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 p-4 sm:p-6 md:p-8">
             {/* Product Image */}
             <div className="relative">
               {product.badge && (
@@ -96,7 +94,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                 <img
                   src={activeImage}
                   alt={product.name}
-                  className="w-full h-84 object-contain"
+                  className="w-full h-48 sm:h-72 md:h-84 object-contain"
                 />
                 <div className="flex gap-2 overflow-x-auto">
                   {product.thumbnails.map((imgUrl, id) => (
@@ -117,7 +115,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
               <p className="text-xs text-gray-400 tracking-wide mb-2">
                 {product.category}
               </p>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                 {product.name}
               </h2>
 
@@ -166,7 +164,7 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                         key={size}
                         onClick={() => {
                           setSelectedSize(size);
-                          setError(""); // Clear error when size is selected
+                          setSizeError("");
                         }}
                         className={`px-4 py-2 border transition ${
                           selectedSize === size
@@ -178,8 +176,8 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                       </button>
                     ))}
                   </div>
-                  <div className="h-3 text-sm text-red-500">
-                    {error && !selectedSize && <>{error}</>}
+                  <div className="min-h-[1.25rem] text-sm text-red-500">
+                    {sizeError && <>{sizeError}</>}
                   </div>
                 </div>
               )}
@@ -188,12 +186,15 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
               {product.colors && product.colors.length > 0 && (
                 <div className="mb-2">
                   <h3 className="font-semibold text-gray-900 mb-2">Color</h3>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     {product.colors.map((color: any, id: number) => (
                       <button
                         key={id}
-                        onClick={() => setSelectedColor(color.name)}
-                        className={`w-10 h-10 transition ${color.value} ${
+                        onClick={() => {
+                          setSelectedColor(color.name);
+                          setColorError("");
+                        }}
+                        className={`w-10 h-10 flex-shrink-0 transition ${color.value} ${
                           selectedColor === color.name
                             ? "border-4 border-black"
                             : "border-2 border-gray-300 hover:border-gray-500"
@@ -202,8 +203,8 @@ const ProductDetailView: React.FC<Props> = ({ product, onClose }) => {
                       />
                     ))}
                   </div>
-                  <div className="h-5 text-sm text-red-500">
-                    {error && selectedSize && !selectedColor && <>{error}</>}
+                  <div className="min-h-[1.25rem] text-sm text-red-500">
+                    {colorError && <>{colorError}</>}
                   </div>
                 </div>
               )}

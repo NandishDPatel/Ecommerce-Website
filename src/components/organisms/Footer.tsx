@@ -6,8 +6,8 @@ import ScrollToTopBtn from "../atoms/ScrollToTopBtn";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 px-6 relative">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-black text-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 relative">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {/* Column 1: About E-Shoppy */}
         <AboutEshoppy />
 
