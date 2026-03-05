@@ -60,13 +60,13 @@ const Topbar = () => {
         </ul>
       </nav>
 
-      <div className="flex flex-wrap items-center justify-between sm:justify-between gap-2 px-3 sm:px-4 py-2 md:py-1">
+      <div className="flex flex-wrap items-center justify-around gap-2 px-3 sm:px-4 py-2 md:py-1">
         {/* Search - hidden on small mobile */}
-        <div className="hidden sm:flex items-center flex-1 min-w-0 max-w-[200px] md:max-w-none">
+        <div className="hidden sm:flex items-center flex-1 min-w-0 max-w-[200px]">
           <input
             type="text"
             placeholder="Search"
-            className="w-full border px-3 py-2 rounded-l outline-none text-sm"
+            className="w-auto border px-3 py-2 rounded-l outline-none text-sm"
             id="search"
           />
           <button type="button" className="bg-teal-400 px-3 py-2 rounded-r text-white flex-shrink-0">
